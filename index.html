@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#0b0b0f" />
+  <meta name="description" content="TokAjuda — comunidade independente para compartilhar links de indicação." />
+  <title>TokAjuda</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="bg-glow glow-a"></div>
+  <div class="bg-glow glow-b"></div>
+
+  <header class="topbar">
+    <a class="brand" href="./">
+      <span class="brand-mark"><i></i><b></b></span>
+      <span>TokAjuda</span>
+    </a>
+    <nav>
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#mural">Mural</a>
+      <a href="#participar" class="btn btn-small">Participar</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero container">
+      <div class="eyebrow">COMUNIDADE INDEPENDENTE</div>
+      <h1>Compartilhe. Ajude.<br><span>Faça sua indicação aparecer.</span></h1>
+      <p class="hero-copy">
+        Envie seu link, anexe a comprovação solicitada e aguarde a análise.
+        Links aprovados entram no mural da comunidade.
+      </p>
+      <div class="hero-actions">
+        <a id="downloadBtn" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Baixar TikTok Lite</a>
+        <a class="btn btn-ghost" href="#participar">Enviar meu link</a>
+      </div>
+      <p class="fineprint">TokAjuda não é afiliado, patrocinado ou administrado pelo TikTok.</p>
+
+      <div class="hero-stats">
+        <div><strong id="approvedCount">—</strong><span>links aprovados</span></div>
+        <div><strong id="clickCount">—</strong><span>acessos no mural</span></div>
+        <div><strong>24h</strong><span>meta de análise</span></div>
+      </div>
+    </section>
+
+    <section id="como-funciona" class="section container">
+      <div class="section-head">
+        <span>PASSO A PASSO</span>
+        <h2>Como participar</h2>
+      </div>
+
+      <div class="steps">
+        <article class="step-card">
+          <div class="step-number">01</div>
+          <h3>Acesse o TikTok Lite</h3>
+          <p>Use o botão oficial disponibilizado na página para acessar o aplicativo.</p>
+        </article>
+        <article class="step-card">
+          <div class="step-number">02</div>
+          <h3>Envie a comprovação</h3>
+          <p>Anexe o print solicitado para a moderação verificar sua participação.</p>
+        </article>
+        <article class="step-card">
+          <div class="step-number">03</div>
+          <h3>Cadastre seu link</h3>
+          <p>Informe seu nome de usuário e o link de indicação que deseja publicar.</p>
+        </article>
+        <article class="step-card">
+          <div class="step-number">04</div>
+          <h3>Aguarde aprovação</h3>
+          <p>Se estiver tudo certo, o link aparece automaticamente no mural.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="participar" class="section container split">
+      <div class="panel info-panel">
+        <div class="section-head left">
+          <span>PARTICIPE</span>
+          <h2>Envie seu link</h2>
+        </div>
+        <p>
+          Preencha os dados abaixo. A moderação poderá aprovar, recusar ou remover
+          publicações que estejam fora das regras.
+        </p>
+        <div class="rules">
+          <div><span>✓</span> Envie apenas seu próprio link.</div>
+          <div><span>✓</span> Não use links encurtados suspeitos.</div>
+          <div><span>✓</span> Não envie dados sensíveis no print.</div>
+          <div><span>✓</span> A participação de outros usuários é voluntária.</div>
+        </div>
+      </div>
+
+      <form id="submissionForm" class="panel form-panel">
+        <label>
+          <span>Seu nome ou @usuário</span>
+          <input id="username" maxlength="60" required placeholder="@seuusuario" autocomplete="nickname" />
+        </label>
+
+        <label>
+          <span>Seu link de indicação</span>
+          <input id="referralUrl" type="url" required placeholder="https://..." />
+        </label>
+
+        <label>
+          <span>Print da comprovação</span>
+          <div class="file-input">
+            <input id="proof" type="file" accept="image/jpeg,image/png,image/webp" required />
+            <strong id="fileLabel">Escolher imagem</strong>
+            <small>PNG, JPG ou WEBP — máximo 5 MB</small>
+          </div>
+        </label>
+
+        <label class="checkline">
+          <input id="terms" type="checkbox" required />
+          <span>Confirmo que o link é meu e aceito as regras da comunidade.</span>
+        </label>
+
+        <button id="submitBtn" class="btn btn-primary btn-full" type="submit">
+          Enviar para análise
+        </button>
+        <div id="formMessage" class="form-message" aria-live="polite"></div>
+      </form>
+    </section>
+
+    <section id="mural" class="section container">
+      <div class="section-head">
+        <span>APROVADOS</span>
+        <h2>Mural da comunidade</h2>
+        <p>Os links abaixo foram liberados pela moderação.</p>
+      </div>
+
+      <div id="linksGrid" class="links-grid">
+        <div class="empty-state">Carregando links...</div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer container">
+    <div class="brand">
+      <span class="brand-mark"><i></i><b></b></span>
+      <span>TokAjuda</span>
+    </div>
+    <p>Comunidade independente. Não afiliada ao TikTok.</p>
+    <a href="./admin.html">Admin</a>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="./config.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>

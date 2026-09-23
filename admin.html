@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#0b0b0f" />
+  <title>TokAjuda • Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body class="admin-body">
+  <div class="bg-glow glow-a"></div>
+
+  <header class="topbar">
+    <a class="brand" href="./">
+      <span class="brand-mark"><i></i><b></b></span>
+      <span>TokAjuda <em>Admin</em></span>
+    </a>
+    <a class="btn btn-small btn-ghost" href="./">Voltar ao site</a>
+  </header>
+
+  <main class="container admin-main">
+    <section id="loginView" class="admin-login panel">
+      <div class="section-head left">
+        <span>ÁREA RESTRITA</span>
+        <h1>Painel administrativo</h1>
+        <p>Entre com um usuário autorizado no Supabase.</p>
+      </div>
+      <form id="loginForm">
+        <label><span>E-mail</span><input id="email" type="email" required placeholder="admin@seudominio.com"></label>
+        <label><span>Senha</span><input id="password" type="password" required placeholder="••••••••"></label>
+        <button class="btn btn-primary btn-full" type="submit">Entrar</button>
+        <div id="loginMessage" class="form-message"></div>
+      </form>
+    </section>
+
+    <section id="dashboardView" class="hidden">
+      <div class="admin-heading">
+        <div>
+          <div class="eyebrow">MODERAÇÃO</div>
+          <h1>Painel de links</h1>
+        </div>
+        <button id="logoutBtn" class="btn btn-ghost btn-small">Sair</button>
+      </div>
+
+      <div class="admin-stats">
+        <article class="mini-stat"><strong id="statPending">0</strong><span>Pendentes</span></article>
+        <article class="mini-stat"><strong id="statApproved">0</strong><span>Aprovados</span></article>
+        <article class="mini-stat"><strong id="statRejected">0</strong><span>Recusados</span></article>
+      </div>
+
+      <div class="tabs">
+        <button class="tab active" data-filter="pending">Pendentes</button>
+        <button class="tab" data-filter="approved">Aprovados</button>
+        <button class="tab" data-filter="rejected">Recusados</button>
+        <button class="tab" data-filter="all">Todos</button>
+      </div>
+
+      <div id="adminList" class="admin-list">
+        <div class="empty-state">Carregando...</div>
+      </div>
+    </section>
+  </main>
+
+  <div id="proofModal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <button id="closeProof" class="modal-close" aria-label="Fechar">×</button>
+      <img id="proofImage" alt="Comprovação enviada">
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="./config.js"></script>
+  <script src="./admin.js"></script>
+</body>
+</html>
